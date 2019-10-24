@@ -1,3 +1,11 @@
+/**
+ * Name:        algoritmo3.c
+ * Description: Implementação do algoritmo 3 para exclusão multua apresentado no capítulo 7 
+ *              do livro "Arquitetura de Sistemas Operacionais" - Luis Paulo Maia              
+ * Author:      Denis Moura
+ * Data:        13-10-2019
+ **/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
