@@ -24,7 +24,7 @@ void* filosofo(int* args);
 int main()
 {
 
-    //Inicializa estado dos 5 garfo 
+    //Inicializa estado dos 5 garfos 
     for(index = 0; index <= 4; index++)
         sem_init(&garfos[index], TRUE, 1);
     
@@ -46,15 +46,21 @@ void* filosofo(int *args)
     
     printf("Filósofo %d está pensando\n",indexValue);
 
+    //senta na cadeira pra comer
     sem_wait(&lugares);
+    
+    //pega dois garfos para comer
     sem_wait(&garfos[indexValue]);
     sem_wait(&garfos[(indexValue + 1) % 5]);
 
     printf("Filósofo está comendo\n");
     sleep(3);
 
+    //libera os dois garfos
     sem_post(&garfos[indexValue]);
     sem_post(&garfos[(indexValue + 1) % 5]);
+
+    //levanta da caderia
     sem_post(&lugares);
 
     printf("Filosofo terminou de comer\n\n");
