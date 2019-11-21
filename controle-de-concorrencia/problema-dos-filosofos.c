@@ -45,6 +45,7 @@ void* filosofo(int *args)
     int indexValue = *args;
     
     printf("Filósofo %d está pensando\n",indexValue);
+    sleep(1);
 
     //senta na cadeira pra comer
     sem_wait(&lugares);
@@ -64,6 +65,7 @@ void* filosofo(int *args)
     sem_post(&lugares);
 
     printf("Filosofo terminou de comer\n\n");
+    sleep(1);
 
     pthread_exit(NULL);
 
